@@ -25,14 +25,14 @@ class Solution(object):
         We know that to create a valid string, we must know the remaining counts of opening and closing. 
         
         
-        Always think of the base case first: when opens and close both equal 0, add the string to result array 
+        Always think of the base case first: when opens and close both equal 0, add the string to result array.
         
         If the above condition isn't met: 
         
-        if opens is greater than 0, add "(" to the existing string, passing this to helper 
-        if opens is less than closing, add ")" to the existing string, passing this to helper 
+        if opens is greater than 0, add "(" to the existing string and decrement opens, passing this to helper 
+        if opens is less than closing, add ")" to the existing string and decrement close, passing this to helper 
         
-        idea is that we want to decrease opens or close counts at each recursive call 
+        idea is that we want to create string and decrement opens/close counts in each recursive call.
         '''
         res = []
         
