@@ -36,3 +36,27 @@ class Solution(object):
                     max_profit = sell_price-buy_price 
         return(max_profit)
         '''
+        '''
+        BETTER IDEA: 
+        
+        
+        
+        initialize min_price, max_profit 
+        
+        Loop through the prices array
+        
+        In each loop, 
+        calculate the minimum price (buy_price - which always comes before sell_price) 
+        calculate current profit (buy_price - current minimum price)
+        if current profit is greater than max_profit, set max_profit to current profit  
+        '''
+        #we know that sell_price-buy_price must be max...this means buy_price must be a minimum 
+        min_price = float('inf')
+        max_profit = 0 
+        for price in prices: 
+            
+            min_price = min(min_price, price) #in each iteration through prices, we must record the minimum buy price 
+            
+            curr_profit = price - min_price #price is always going to be >= min_price which may remain the same or change at every iteration 
+            max_profit = max(max_profit, curr_profit)
+        return(max_profit)
